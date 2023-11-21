@@ -1,0 +1,88 @@
+use("apidatabaselogin")
+db.createCollection("user", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "user",
+            required: ["_id", "old", "name", "nickname", "correo", "phone", "sesion", "password", "role", "gender", "correo_recuperation", "description"],
+            properties: {
+                "_id": {
+                    bsonType: "string",
+                    description: "the id is a string"
+                },
+                "old": {
+                    bsonType: ["number","null"],
+                    maxLength: 100,
+                    minimum: 0,
+                    maximum: 120,
+                    description: "the old is a positive number or null ( min:1 old | max: 119 old ) "
+                },
+                "name": {
+                    bsonType: "string",
+                    maxLength: 250,
+                    minLength: 2,
+                    description: "the name is a string (min:2 | max:250)"
+                },
+                "nickname": {
+                    bsonType: "string",
+                    maxLength: 100,
+                    minLength: 1,
+                    description: "the user is a string (min:1 | max:100)"
+                },
+                "correo": {
+                    bsonType: "string",
+                    maxLength: 250,
+                    minLength: 13,
+                    description: "the correo is a string (min:13 | max:250)"
+                },
+                "phone": {
+                    bsonType: ["string","null"],
+                    maxLength: 100,
+                    minLength: 10,
+                    description: "the phone is a string or null (min:10 | max:100)"
+                },
+                "sesion": {
+                    bsonType: ["string","null"],
+                    minLength: 10,
+                    description: "the token is a string or null (min:10)"
+                },
+                "password": {
+                    bsonType: "string",
+                    maxLength: 50,
+                    minLength: 5,
+                    description: "the password is a string (min:2 | max:50)"
+                },
+                "role": {
+                    bsonType: "array",
+                    items: {
+                        bsonType: ["number","string","bool"],
+                        maxLength: 50,
+                        minLength: 1,
+                        description: "the items for array are a string (min:1 | max:50)"
+                    },
+                    description: "the role is a array"
+                },
+                "gender": {
+                    bsonType: ["string","null"],
+                    maxLength: 50,
+                    minLength: 1,
+                    description: "the gender is a string or null (min:1 | max:50)"
+                },
+                "correo_recuperation": {
+                    bsonType: ["string", "null"],
+                    maxLength: 250,
+                    minLength: 13,
+                    description: "the correo_recuperation is a string or null (min:13 | max:250)"
+                },
+                "description": {
+                    bsonType: ["string","null"],
+                    maxLength: 500,
+                    minLength: 0,
+                    description: "the description is a string or null (min:0 | max:500)"
+                }
+            },
+            uniqueItems: true,
+            additionalItems: false
+        }
+    }
+})

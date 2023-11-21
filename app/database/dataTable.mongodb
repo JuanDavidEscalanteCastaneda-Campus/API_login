@@ -1,0 +1,32 @@
+use("apidatabaselogin")
+db.user.insertMany([
+    {
+        "_id": "A19$T_1",
+        "old": 19,
+        "name": "Juan David Escalante Castañeda",
+        "nickname": "Tackosday",
+        "correo": "juandaesca5@hotmail.com",
+        "phone": "3133513939",
+        "sesion": null,
+        "password": "T12345",
+        "role": ["Admin"],
+        "gender": "Masculino",
+        "correo_recuperation": null,
+        "description": null
+    },
+    {
+        "_id": "U18$T_2",
+        "old": 18,
+        "name": "Juan Jose Duran Rincon",
+        "nickname": "The fred",
+        "correo": "juandaesca0@gmail.com",
+        "phone": "3133513939",
+        "sesion": null,
+        "password": "F12345",
+        "role": ["User"],
+        "gender": "Masculino",
+        "correo_recuperation": null,
+        "description": null
+    },
+
+])
